@@ -71,9 +71,8 @@ public class GregCrops {
 
     @SubscribeEvent
     public void onRegister(RegisterEvent event) {
-        GregCropPropertyKeys.init();
         GregCropsMaterialIconType.init();
-        GregCropsTagPrefix.initTagPrefixes();
+        GregCropPropertyKeys.init();
     }
 
     /**
