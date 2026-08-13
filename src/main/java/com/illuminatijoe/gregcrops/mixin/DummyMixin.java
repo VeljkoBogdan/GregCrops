@@ -1,4 +1,4 @@
-package com.example.examplemod.mixin;
+package com.illuminatijoe.gregcrops.mixin;
 
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 

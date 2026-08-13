@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.illuminatijoe.gregcrops;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
@@ -9,28 +9,34 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
+import com.illuminatijoe.gregcrops.api.data.GregCropsMaterialIconType;
+import com.illuminatijoe.gregcrops.api.data.GregCropsTagPrefix;
+import com.illuminatijoe.gregcrops.api.data.chemical.material.properties.GregCropPropertyKeys;
+import com.illuminatijoe.gregcrops.data.materials.GregCropsMaterials;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import net.minecraftforge.registries.RegisterEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(ExampleMod.MOD_ID)
+@Mod(GregCrops.MOD_ID)
 @SuppressWarnings("removal")
-public class ExampleMod {
+public class GregCrops {
 
-    public static final String MOD_ID = "examplemod";
+    public static final String MOD_ID = "gregcrops";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(ExampleMod.MOD_ID);
+    public static GTRegistrate GREGCROPS_REGISTRATE = GTRegistrate.create(GregCrops.MOD_ID);
 
-    public ExampleMod() {
+    public GregCrops() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -49,7 +55,7 @@ public class ExampleMod {
         // we need to register our object like this!
         MinecraftForge.EVENT_BUS.register(this);
 
-        EXAMPLE_REGISTRATE.registerRegistrate();
+        GREGCROPS_REGISTRATE.registerRegistrate();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -61,6 +67,13 @@ public class ExampleMod {
 
     private void clientSetup(final FMLClientSetupEvent event) {
         LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
+    }
+
+    @SubscribeEvent
+    public void onRegister(RegisterEvent event) {
+        GregCropPropertyKeys.init();
+        GregCropsMaterialIconType.init();
+        GregCropsTagPrefix.initTagPrefixes();
     }
 
     /**
@@ -81,7 +94,7 @@ public class ExampleMod {
      * @param event
      */
     private void addMaterialRegistries(MaterialRegistryEvent event) {
-        GTCEuAPI.materialManager.createRegistry(ExampleMod.MOD_ID);
+        GTCEuAPI.materialManager.createRegistry(GregCrops.MOD_ID);
     }
 
     /**
@@ -100,7 +113,7 @@ public class ExampleMod {
      * @param event
      */
     private void modifyMaterials(PostMaterialEvent event) {
-        // CustomMaterials.modify();
+        GregCropsMaterials.modifyMaterials();
     }
 
     /**
