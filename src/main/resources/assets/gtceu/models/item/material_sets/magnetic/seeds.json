@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "gtceu:item/material_sets/magnetic/seeds"
+    "layer0": "gtceu:item/material_sets/magnetic/seeds",
+    "layer1": "gtceu:item/material_sets/magnetic/seeds_secondary"
   }
 }

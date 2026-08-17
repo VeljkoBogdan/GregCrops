@@ -20,7 +20,7 @@ public class GregCropsTagPrefix {
                 .defaultTagPath("seeds")
                 .materialIconType(GregCropsMaterialIconType.seeds)
                 .unificationEnabled(true)
-                .generateItem(true)
+                .generateItem(false)
                 .generationCondition(hasSeedsProperty);
     }
 }

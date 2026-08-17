@@ -12,7 +12,9 @@ import com.gregtechceu.gtceu.api.sound.SoundEntry;
 import com.illuminatijoe.gregcrops.api.data.GregCropsMaterialIconType;
 import com.illuminatijoe.gregcrops.api.data.GregCropsTagPrefix;
 import com.illuminatijoe.gregcrops.api.data.chemical.material.properties.GregCropPropertyKeys;
+import com.illuminatijoe.gregcrops.data.blocks.GregCropsBlocks;
 import com.illuminatijoe.gregcrops.data.materials.GregCropsMaterials;
+import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -49,13 +51,17 @@ public class GregCrops {
         modEventBus.addGenericListener(GTRecipeType.class, this::registerRecipeTypes);
         modEventBus.addGenericListener(MachineDefinition.class, this::registerMachines);
         modEventBus.addGenericListener(SoundEntry.class, this::registerSounds);
+        modEventBus.addGenericListener(BlockEntry.class, this::registerBlocks);
 
         // Most other events are fired on Forge's bus.
         // If we want to use annotations to register event listeners,
         // we need to register our object like this!
         MinecraftForge.EVENT_BUS.register(this);
 
+        this.init();
         GREGCROPS_REGISTRATE.registerRegistrate();
+
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -69,10 +75,10 @@ public class GregCrops {
         LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
     }
 
-    @SubscribeEvent
-    public void onRegister(RegisterEvent event) {
+    public void init() {
         GregCropsMaterialIconType.init();
         GregCropPropertyKeys.init();
+
     }
 
     /**
@@ -103,7 +109,7 @@ public class GregCrops {
      * @param event
      */
     private void addMaterials(MaterialEvent event) {
-        // CustomMaterials.init();
+
     }
 
     /**
@@ -143,5 +149,9 @@ public class GregCrops {
      */
     public void registerSounds(GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry> event) {
         // CustomSounds.init();
+    }
+
+    public void registerBlocks(GTCEuAPI.RegisterEvent<ResourceLocation, BlockEntry<?>> event) {
+        GregCropsBlocks.generateCropBlocks();
     }
 }

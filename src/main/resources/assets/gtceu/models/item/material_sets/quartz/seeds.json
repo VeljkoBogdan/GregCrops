@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "gtceu:item/material_sets/quartz/seeds"
+    "layer0": "gtceu:item/material_sets/quartz/seeds",
+    "layer1": "gtceu:item/material_sets/quartz/seeds_secondary"
   }
 }
