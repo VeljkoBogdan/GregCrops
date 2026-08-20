@@ -4,6 +4,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProp
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.MaterialProperties;
 
 public class SeedsProperty implements IMaterialProperty {
+
     @Override
     public void verifyProperty(MaterialProperties materialProperties) {}
 }

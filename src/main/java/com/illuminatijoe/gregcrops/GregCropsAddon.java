@@ -28,7 +28,7 @@ public class GregCropsAddon implements IGTAddon {
 
     @Override
     public void registerTagPrefixes() {
-        GregCropsTagPrefix.initTagPrefixes();
+        //GregCropsTagPrefix.initTagPrefixes();
     }
 
     @Override

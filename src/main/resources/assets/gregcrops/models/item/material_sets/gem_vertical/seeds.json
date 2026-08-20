@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "gregcrops:item/material_sets/gem_vertical/seeds",
+    "layer1": "gregcrops:item/material_sets/gem_vertical/seeds_secondary"
+  }
+}

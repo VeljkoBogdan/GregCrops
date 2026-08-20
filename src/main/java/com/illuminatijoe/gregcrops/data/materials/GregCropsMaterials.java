@@ -1,6 +1,5 @@
 package com.illuminatijoe.gregcrops.data.materials;
 
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.illuminatijoe.gregcrops.api.data.chemical.material.properties.GregCropPropertyKeys;
 import com.illuminatijoe.gregcrops.api.data.chemical.material.properties.SeedsProperty;
 
