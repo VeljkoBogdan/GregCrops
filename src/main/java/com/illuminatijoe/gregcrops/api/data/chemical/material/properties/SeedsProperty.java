@@ -5,17 +5,14 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProp
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.MaterialProperties;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class SeedsProperty implements IMaterialProperty {
+
     private final String dropItemId;
     private final TagPrefix dropTagPrefix;
     private final Material dropMaterial;
@@ -64,7 +61,8 @@ public class SeedsProperty implements IMaterialProperty {
     }
 
     public Item getItem() {
-        return hasItem() ? ForgeRegistries.ITEMS.getValue(ResourceLocation.parse(dropItemId)).asItem() : ItemStack.EMPTY.getItem();
+        return hasItem() ? ForgeRegistries.ITEMS.getValue(ResourceLocation.parse(dropItemId)).asItem() :
+                ItemStack.EMPTY.getItem();
     }
 
     @Override
