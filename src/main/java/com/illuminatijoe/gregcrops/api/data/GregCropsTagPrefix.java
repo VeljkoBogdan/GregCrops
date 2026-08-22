@@ -1,11 +1,10 @@
 package com.illuminatijoe.gregcrops.api.data;
 
 import com.illuminatijoe.gregcrops.api.data.chemical.material.properties.GregCropPropertyKeys;
+import com.illuminatijoe.gregcrops.data.blocks.GregCropsBlocks;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.illuminatijoe.gregcrops.data.blocks.GregCropBlock;
-import net.minecraft.client.renderer.RenderType;
 
 import java.util.function.Predicate;
 
@@ -23,11 +22,7 @@ public class GregCropsTagPrefix {
                 .defaultTagPath("seeds")
                 .materialIconType(GregCropsMaterialIconType.seeds)
                 .unificationEnabled(true)
-                .blockConstructor(GregCropBlock::new)
-                .blockProperties(new TagPrefix.BlockProperties(
-                        () -> RenderType::cutout,
-                        p -> p.noCollission().noOcclusion().instabreak()
-                ))
+                .itemTable(() -> GregCropsBlocks.CROP_BLOCKS)
                 .generationCondition(hasSeedsProperty);
     }
 }

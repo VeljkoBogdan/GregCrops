@@ -1,35 +1,12 @@
 {
   "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
-    }
-  ],
   "pools": [
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "block": "gregcrops:gold_seeds",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "age": "5"
-                  }
-                }
-              ],
-              "name": "gregcrops:gold_seeds"
-            },
-            {
-              "type": "minecraft:item",
-              "name": "gregcrops:gold_seeds"
-            }
-          ]
+          "type": "minecraft:item",
+          "name": "gregcrops:gold_seeds"
         }
       ],
       "rolls": 1.0
@@ -48,18 +25,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:binomial_with_bonus_count",
-              "function": "minecraft:apply_bonus",
-              "parameters": {
-                "extra": 3,
-                "probability": 0.5714286
-              }
-            }
-          ],
-          "name": "gregcrops:gold_seeds"
+          "name": "minecraft:raw_gold"
         }
       ],
       "rolls": 1.0

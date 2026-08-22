@@ -1,29 +1,21 @@
 package com.illuminatijoe.gregcrops.data.blocks;
 
-import com.gregtechceu.gtceu.GTCEu;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.illuminatijoe.gregcrops.api.data.GregCropsTagPrefix;
-
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraftforge.common.PlantType;
 
 import lombok.Getter;
-import net.minecraftforge.common.PlantType;
-import org.apache.logging.log4j.Level;
 import org.jetbrains.annotations.NotNull;
-
-import static com.illuminatijoe.gregcrops.api.data.GregCropsTagPrefix.seeds;
 
 @Getter
 public class GregCropBlock extends CropBlock {

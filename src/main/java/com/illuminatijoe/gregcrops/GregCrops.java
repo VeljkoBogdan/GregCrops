@@ -1,7 +1,5 @@
 package com.illuminatijoe.gregcrops;
 
-import com.gregtechceu.gtceu.GTCEu;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.illuminatijoe.gregcrops.api.data.GregCropsMaterialIconType;
 import com.illuminatijoe.gregcrops.api.data.GregCropsTagPrefix;
 import com.illuminatijoe.gregcrops.api.data.chemical.material.properties.GregCropPropertyKeys;
@@ -17,8 +15,6 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
-import com.tterrag.registrate.util.entry.BlockEntry;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -30,7 +26,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
