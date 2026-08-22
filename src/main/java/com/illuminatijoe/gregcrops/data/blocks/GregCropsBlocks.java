@@ -20,6 +20,7 @@ import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -94,8 +95,13 @@ public class GregCropsBlocks {
                 .loot((prov, block) -> {
                     SeedsProperty prop = material.getProperty(GregCropPropertyKeys.SEEDS);
                     var seedItem = block.asItem();
-                    var grownCropItem = ChemicalHelper
-                            .get(prop.resolveDropTagPrefix(material), prop.resolveDropMaterial(material)).getItem();
+                    Item grownCropItem;
+                    if (prop.hasItem()) {
+                        grownCropItem = prop.getItem();
+                    } else {
+                        grownCropItem = ChemicalHelper
+                                .get(prop.resolveDropTagPrefix(material), prop.resolveDropMaterial(material)).getItem();
+                    }
                     var matureCondition = LootItemBlockStatePropertyCondition
                             .hasBlockStateProperties(block)
                             .setProperties(StatePropertiesPredicate.Builder

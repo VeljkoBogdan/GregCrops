@@ -25,7 +25,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:air"
+          "name": "gtceu:paper_dust"
         }
       ],
       "rolls": 1.0

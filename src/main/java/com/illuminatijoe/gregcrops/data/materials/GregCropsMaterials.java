@@ -12,9 +12,9 @@ public class GregCropsMaterials {
     public static void modifyMaterials() {
         // Periodic table elements
         Iron.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty(TagPrefix.dust));
-        Copper.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty(TagPrefix.rawOre, Malachite));
+        Copper.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty(TagPrefix.rawOre, Chalcopyrite));
         Tin.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty(TagPrefix.ingot));
-        Lead.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty());
+        Lead.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty("gtceu:lead_ingot"));
         Zinc.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty());
         Gold.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty());
         Aluminium.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty());
