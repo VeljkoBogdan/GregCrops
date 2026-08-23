@@ -36,6 +36,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import org.apache.logging.log4j.Level;
 
+import static com.gregtechceu.gtceu.utils.FormattingUtil.toEnglishName;
 import static com.illuminatijoe.gregcrops.GregCrops.GREGCROPS_REGISTRATE;
 
 @SuppressWarnings("removal")
@@ -121,6 +122,7 @@ public class GregCropsBlocks {
                         ctx.getName(), new ResourceLocation("item/generated"))
                         .texture("layer0", GregCrops.id("item/seeds"))
                         .texture("layer1", GregCrops.id("item/seeds_secondary")))
+                .lang(tagPrefix.langValue().formatted(toEnglishName(material.getName())))
                 .color(() -> () -> (ItemColor) (stack, tintIndex) -> tintIndex == 0 ? color : -1)
                 .build()
                 .register();

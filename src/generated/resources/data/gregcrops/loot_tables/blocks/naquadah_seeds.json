@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "gregcrops:naquadah_seeds"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "gregcrops:naquadah_seeds",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "5"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "gtceu:raw_naquadah"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "gregcrops:blocks/naquadah_seeds"
+}

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "gregcrops:blackstone_seeds"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "gregcrops:blackstone_seeds",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "5"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "gtceu:blackstone_dust"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "gregcrops:blocks/blackstone_seeds"
+}

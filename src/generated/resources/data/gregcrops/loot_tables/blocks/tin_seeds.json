@@ -25,7 +25,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "gtceu:tin_ingot"
+          "name": "gtceu:raw_tin"
         }
       ],
       "rolls": 1.0

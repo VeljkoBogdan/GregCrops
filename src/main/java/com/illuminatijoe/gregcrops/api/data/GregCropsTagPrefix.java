@@ -17,7 +17,6 @@ public class GregCropsTagPrefix {
     public static void initTagPrefixes() {
         seeds = new TagPrefix("seeds")
                 .idPattern("%s_seeds")
-                .langValue("%s Seeds")
                 .defaultTagPath("seeds/%s")
                 .defaultTagPath("seeds")
                 .materialIconType(GregCropsMaterialIconType.seeds)

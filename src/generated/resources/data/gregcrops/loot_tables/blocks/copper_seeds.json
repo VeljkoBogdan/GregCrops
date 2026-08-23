@@ -25,7 +25,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "gtceu:raw_chalcopyrite"
+          "name": "minecraft:raw_copper"
         }
       ],
       "rolls": 1.0

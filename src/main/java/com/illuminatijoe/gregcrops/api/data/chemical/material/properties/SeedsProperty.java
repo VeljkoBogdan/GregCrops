@@ -51,6 +51,7 @@ public class SeedsProperty implements IMaterialProperty {
             if (self.hasProperty(PropertyKey.DUST)) return TagPrefix.dust;
             if (self.hasProperty(PropertyKey.GEM)) return TagPrefix.gem;
             if (self.hasProperty(PropertyKey.INGOT)) return TagPrefix.ingot;
+            return TagPrefix.block;
         }
 
         return dropTagPrefix;

@@ -25,7 +25,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "gtceu:iron_dust"
+          "name": "minecraft:raw_iron"
         }
       ],
       "rolls": 1.0

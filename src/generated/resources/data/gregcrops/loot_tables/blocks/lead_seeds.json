@@ -25,7 +25,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "gtceu:lead_ingot"
+          "name": "gtceu:raw_lead"
         }
       ],
       "rolls": 1.0
