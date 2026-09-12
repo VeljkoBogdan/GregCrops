@@ -1,0 +1,1 @@
+com.illuminatijoe.gregcrops.integration.kubejs.GregCropsKubeJSPlugin
