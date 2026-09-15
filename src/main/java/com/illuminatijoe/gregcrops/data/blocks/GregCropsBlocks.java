@@ -72,6 +72,7 @@ public class GregCropsBlocks {
         var tagPrefix = GregCropsTagPrefix.seeds;
         String id = tagPrefix.idPattern().formatted(material.getName());
         int color = material.getMaterialRGB();
+        int secondaryColor = material.getMaterialSecondaryRGB();
 
         var blockEntry = registrate
                 .block(id, p -> new GregCropBlock(p, tagPrefix, material))
@@ -122,8 +123,12 @@ public class GregCropsBlocks {
                         ctx.getName(), new ResourceLocation("item/generated"))
                         .texture("layer0", GregCrops.id("item/seeds"))
                         .texture("layer1", GregCrops.id("item/seeds_secondary")))
+                .color(() -> () -> (ItemColor) (stack, tintIndex) -> switch (tintIndex) {
+                    case 0 -> color;
+                    case 1 -> secondaryColor;
+                    default -> -1;
+                })
                 .lang(tagPrefix.langValue().formatted(toEnglishName(material.getName())))
-                .color(() -> () -> (ItemColor) (stack, tintIndex) -> tintIndex == 0 ? color : -1)
                 .build()
                 .register();
 
