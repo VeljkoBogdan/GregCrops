@@ -1,7 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "gregcrops:item/material_sets/rough/seeds",
-    "layer1": "gregcrops:item/material_sets/rough/seeds_secondary"
-  }
-}
