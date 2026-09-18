@@ -1,36 +1,66 @@
-# GregTech Addon Template
-## Template for GregTech Modern addons on 1.20.1
+# GregCrops
 
- Original template by [screret](https://github.com/screret), maintained by [JuiceyBeans](https://github.com/JuiceyBeans)
+GregCrops adds farmable crops for GregTech materials. Designed mainly for modpack makers.
 
-<hr>
+## Features:
 
-## How do I make an addon for GregTech Modern?
-Well for one, you WILL need to know Java to make an addon. There's no getting around this. A good starting point would be [MOOC](https://java-programming.mooc.fi/) or [W3Schools](https://www.w3schools.com/java/
-)
+- Works with any material - any material can be easily registered for a crop
+- Fully configurable drops - you can add *any* item drop to a crop
+- Java and KubeJS API - new crops can be added through either an addon mod or kubejs with just a single line of code
 
-Unfortunately, there isn't any official documentation so far for making GregTech Modern addons. There are a couple of mods you can look at to reference though!
+## How it works
 
-Repositories for other addons:
+Plant a material's seed on farmland like any vanilla crop. It grows through 6 stages. At the end you can harvest it to get the crop's drop and seed.
 
-- [GT Community Additions](https://github.com/mordgren/GTCA)
-- [MoniLabs](https://github.com/NegaNote/MoniLabs)
+Crops don't allow bone-mealing.
 
-Additionally, you may be able to find help on the [GregTech CEu Discord](https://discord.gg/bWSWuYvURP)!
+## Adding Crops to Materials
 
-<hr>
+### Java
+```java
+@SubscribeEvent
+public static void materialModification(PostMaterialEvent event) {
+    // Default: drops raw ore of the crop's own material when mature if it exists, if not then it finds another drop (dust, ingot, etc)
+    GTMaterials.Copper.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty());
 
-## This template comes packaged with [Spotless](https://github.com/diffplug/spotless)!
+    // Choose a specific drop tag prefix (dust in this case)
+    GTMaterials.Iron.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty(TagPrefix.dust));
 
-### 1. What is Spotless?
-- Spotless keeps your code neatly formatted. It's essentially a grammar check for your code!
-### 2. Can I choose not to use Spotless?
-- Yes! Spotless is completely optional and will not affect your project by default
-### 3. How do I run Spotless?
-- You can run Spotless anytime by:
-  - Running the `spotlessApply` task from the Gradle tab in IntelliJ
-  - Installing the [Spotless Gradle plugin for IntelliJ](https://plugins.jetbrains.com/plugin/18321-spotless-gradle)
-  - Typing in `gradlew.bat :spotlessApply` if you're on Windows
-  - Typing in `bash gradlew :spotlessApply` if you're on Linux
-### 4. So how do I check if Spotless has been applied to my code?
-- Running `spotlessApply` will format all files for you automatically! If you want GitHub to check each commit for if Spotless has been run, you can add [this](https://github.com/Frontiers-PackForge/CosmicCore/blob/main-1.20.1-forge/.github/workflows/spotless.yml) and [this](https://github.com/Frontiers-PackForge/CosmicCore/blob/main-1.20.1-forge/.github/actions/build_setup/action.yml) to your project
+    // You can also use any other material as a drop
+    GTMaterials.Aluminium.setProperty(GregCropPropertyKeys.SEEDS,
+            new SeedsProperty(TagPrefix.rawOre, GTMaterials.Bauxite));
+    
+    // You can also just use any other item using its id
+    GTMaterials.Tin.setProperty(GregCropPropertyKeys.SEEDS,
+            new SeedsProperty('minecraft:gunpowder'));
+}
+```
+### KubeJS
+
+```javascript
+const $TagPrefix = Java.loadClass('com.gregtechceu.gtceu.api.data.tag.TagPrefix');
+
+GTCEuStartupEvents.materialModification(event => {
+    // GregCrops exposes SeedsProperty and GregCropPropertyKeys as globals
+    GTMaterials.Copper.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty());
+
+    GTMaterials.Iron.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty($TagPrefix.dust));
+
+    GTMaterials.Aluminium.setProperty(GregCropPropertyKeys.SEEDS,
+        new SeedsProperty($TagPrefix.rawOre, GTMaterials.Bauxite));
+
+    GTMaterials.Tin.setProperty(GregCropPropertyKeys.SEEDS,
+        new SeedsProperty('minecraft:gunpowder'));
+});
+```
+
+### Overriding an Existing Crop
+
+There is a mod config to remove all properties if you want to start from scratch.
+
+If you don't want to start from scratch, you have to remove the property before setting a new one, same as any other GTCEu material property:
+
+```java
+GTMaterials.Copper.removeProperty(GregCropPropertyKeys.SEEDS);
+GTMaterials.Copper.setProperty(GregCropPropertyKeys.SEEDS, new SeedsProperty(TagPrefix.ingot));
+```
