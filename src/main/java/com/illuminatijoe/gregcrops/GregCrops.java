@@ -15,9 +15,7 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -26,6 +24,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 
+import dev.toma.configuration.Configuration;
+import dev.toma.configuration.config.format.ConfigFormats;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,11 +33,14 @@ import org.apache.logging.log4j.Logger;
 @SuppressWarnings("removal")
 public class GregCrops {
 
+    public static GregCropsConfig config;
     public static final String MOD_ID = "gregcrops";
     public static final Logger LOGGER = LogManager.getLogger();
     public static GTRegistrate GREGCROPS_REGISTRATE = GTRegistrate.create(GregCrops.MOD_ID);
 
     public GregCrops() {
+        config = Configuration.registerConfig(GregCropsConfig.class, ConfigFormats.json()).getConfigInstance();
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -60,16 +63,9 @@ public class GregCrops {
         GREGCROPS_REGISTRATE.registerRegistrate();
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            LOGGER.info("Hello from common setup! This is *after* registries are done, so we can do this:");
-            LOGGER.info("Look, I found a {}!", Items.DIAMOND);
-        });
-    }
+    private void commonSetup(final FMLCommonSetupEvent event) {}
 
-    private void clientSetup(final FMLClientSetupEvent event) {
-        LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
-    }
+    private void clientSetup(final FMLClientSetupEvent event) {}
 
     public void init() {
         GregCropsMaterialIconType.init();
@@ -105,7 +101,7 @@ public class GregCrops {
      * @param event
      */
     private void addMaterials(MaterialEvent event) {
-        GregCropsMaterials.modifyMaterials();
+        if (GregCrops.config.generateDefaultSeeds) GregCropsMaterials.modifyMaterials();
     }
 
     /**
