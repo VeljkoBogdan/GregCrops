@@ -13,7 +13,7 @@ import java.util.function.Consumer;
 public class GregCropsRecipes {
 
     public static void init(Consumer<FinishedRecipe> consumer) {
-        if (GregCrops.config.generateDefaultSeeds) {
+        if (GregCrops.config.generateDefaultRecipes) {
             for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
                 for (Material material : registry.getAllMaterials()) {
                     SeedsDefaultRecipeHandler.run(consumer, material);
