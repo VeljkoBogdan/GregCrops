@@ -99,5 +99,8 @@
   "block.gregcrops.uranium_235_seeds": "spǝǝS ϛƐᄅ ɯnıuɐɹ∩",
   "block.gregcrops.uranium_seeds": "spǝǝS ɯnıuɐɹ∩",
   "block.gregcrops.vanadium_seeds": "spǝǝS ɯnıpɐuɐΛ",
-  "block.gregcrops.zinc_seeds": "spǝǝS ɔuıZ"
+  "block.gregcrops.zinc_seeds": "spǝǝS ɔuıZ",
+  "config.gregcrops.option.generateDefaultRecipes": "sǝdıɔǝɹ pǝǝs ʇןnɐɟǝp ǝʇɐɹǝuǝ⅁",
+  "config.gregcrops.option.generateDefaultSeeds": "spǝǝs ʇןnɐɟǝp ǝʇɐɹǝuǝ⅁",
+  "config.screen.gregcrops": "uoıʇɐɹnbıɟuoƆ sdoɹƆ bǝɹ⅁"
 }

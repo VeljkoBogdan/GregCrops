@@ -99,5 +99,8 @@
   "block.gregcrops.uranium_235_seeds": "Uranium 235 Seeds",
   "block.gregcrops.uranium_seeds": "Uranium Seeds",
   "block.gregcrops.vanadium_seeds": "Vanadium Seeds",
-  "block.gregcrops.zinc_seeds": "Zinc Seeds"
+  "block.gregcrops.zinc_seeds": "Zinc Seeds",
+  "config.gregcrops.option.generateDefaultRecipes": "Generate default seed recipes",
+  "config.gregcrops.option.generateDefaultSeeds": "Generate default seeds",
+  "config.screen.gregcrops": "Greg Crops Configuration"
 }

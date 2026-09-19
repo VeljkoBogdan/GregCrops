@@ -4,6 +4,7 @@ import com.illuminatijoe.gregcrops.api.data.GregCropsMaterialIconType;
 import com.illuminatijoe.gregcrops.api.data.GregCropsTagPrefix;
 import com.illuminatijoe.gregcrops.api.data.chemical.material.properties.GregCropPropertyKeys;
 import com.illuminatijoe.gregcrops.data.blocks.GregCropsBlocks;
+import com.illuminatijoe.gregcrops.data.lang.ConfigurationLang;
 import com.illuminatijoe.gregcrops.data.materials.GregCropsMaterials;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
@@ -24,6 +25,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 
+import com.tterrag.registrate.providers.ProviderType;
 import dev.toma.configuration.Configuration;
 import dev.toma.configuration.config.format.ConfigFormats;
 import org.apache.logging.log4j.LogManager;
@@ -71,6 +73,8 @@ public class GregCrops {
         GregCropsMaterialIconType.init();
         GregCropPropertyKeys.init();
         GregCropsTagPrefix.initTagPrefixes();
+
+        GregCrops.GREGCROPS_REGISTRATE.addDataGenerator(ProviderType.LANG, ConfigurationLang::init);
     }
 
     /**
